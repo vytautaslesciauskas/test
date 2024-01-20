@@ -1,6 +1,8 @@
 import { test, expect } from '@playwright/test';
 import * as fs from 'fs'
-import fetch from 'node-fetch';
+// import fetch from 'node-fetch';
+const fetch = require('node-fetch');
+
 
 test('has title', async ({ page }) => {
   await page.goto('https://getipass.com/');
