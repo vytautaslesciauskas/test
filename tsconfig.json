@@ -1,8 +1,0 @@
-{
-  "compilerOptions": {
-    "target": "es2017", // or higher
-    "module": "esnext", // or any of the mentioned module options (es2022, esnext, system, node16, nodenext)
-    // other options...
-  },
-  // other configurations...
-}
