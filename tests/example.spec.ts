@@ -1,5 +1,7 @@
 import { test, expect } from '@playwright/test';
 import * as fs from 'fs'
+import fetch from 'node-fetch';
+
 
 test('has title', async ({ page }) => {
   await page.goto('https://getipass.com/');

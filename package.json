@@ -10,5 +10,8 @@
   "devDependencies": {
     "@playwright/test": "^1.41.0",
     "@types/node": "^20.11.5"
+  },
+  "dependencies": {
+    "node-fetch": "^3.3.2"
   }
 }
