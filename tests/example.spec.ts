@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
+import axios from 'axios'
 import * as fs from 'fs'
 // import fetch from 'node-fetch';
-const fetch = require('node-fetch');
 
 
 test('has title', async ({ page }) => {
@@ -26,7 +26,9 @@ test('has title', async ({ page }) => {
   await download.saveAs(savePath);
   const fileContent = fs.readFileSync(savePath, 'utf-8');
   console.log('File Content:', fileContent);
-  await fetch("https://pgf.lt/spedlite/ipass/getJson.php", {method: "post", body: JSON.stringify(fileContent)})
+  await axios.post("https://pgf.lt/spedlite/ipass/getJson.php", { data: JSON.stringify(fileContent) });
+
+  // await fetch("https://pgf.lt/spedlite/ipass/getJson.php", {method: "post", body: JSON.stringify(fileContent)})
   fs.unlinkSync(savePath);
 });
 
