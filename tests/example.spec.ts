@@ -1,7 +1,8 @@
+// @ts-ignore
 import { test, expect } from '@playwright/test';
 import * as fs from 'fs'
-import fetch from 'node-fetch';
-
+// @ts-ignore
+const fetch = await import('node-fetch');
 
 test('has title', async ({ page }) => {
   await page.goto('https://getipass.com/');
