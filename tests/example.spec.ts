@@ -1,9 +1,9 @@
 import { test, expect } from '@playwright/test';
+import * as fs from 'fs'
 
 test('has title', async ({ page }) => {
   await page.goto('https://getipass.com/');
 
-  // Expect a title "to contain" a substring.
   await page.locator('//button[@id="landing_logIn"]').click();
   await page.locator('//input[@id="_com_liferay_login_web_portlet_LoginPortlet_usernameFromP"]').fill('kmsexpressinc');
   await page.locator('//input[@id="_com_liferay_login_web_portlet_LoginPortlet_password-field"]').fill('Emma@1201');
@@ -18,16 +18,10 @@ test('has title', async ({ page }) => {
 
 
   const download = await downloadPromise;
+  const savePath = './' + download.suggestedFilename();
 
-  await download.saveAs('./' + download.suggestedFilename());
-
-
-
-
-
-
-
-
-
+  await download.saveAs(savePath);
+  const fileContent = fs.readFileSync(savePath, 'utf-8');
+  console.log('File Content:', fileContent);
 });
 
